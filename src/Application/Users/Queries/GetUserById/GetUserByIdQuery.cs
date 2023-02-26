@@ -1,4 +1,6 @@
-﻿using MediatR;
+﻿using AutoMapper;
+using Domain.Entities;
+using MediatR;
 
 namespace Application.Users.Queries.GetUserById
 {
@@ -9,13 +11,25 @@ namespace Application.Users.Queries.GetUserById
 
     public class GetUserByIdQueryHandler : IRequestHandler<GetUserByIdQuery, UserDto>
     {
-        public GetUserByIdQueryHandler()
+        private readonly IMapper _mapper;
+
+        public GetUserByIdQueryHandler
+        (
+            IMapper mapper
+        )
         {
+            _mapper = mapper;
         }
 
         public async Task<UserDto> Handle(GetUserByIdQuery request, CancellationToken cancellationToken)
         {
-            return new UserDto();
+            var user = new User
+            {
+                Id = request.Id,
+                FirstName = "John",
+                LastName = "Doe"
+            };
+            return _mapper.Map<UserDto>(user);
         }
     }
 }

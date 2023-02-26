@@ -1,9 +1,6 @@
-﻿using Application.Common.Mappings;
-using Domain.Entities;
-
-namespace Application.Users.Queries.GetUserById
+﻿namespace Domain.Entities
 {
-    public class UserDto : IMapFrom<User>
+    public class User
     {
         public Guid Id { get; set; }
         public string FirstName { get; set; } = string.Empty;
