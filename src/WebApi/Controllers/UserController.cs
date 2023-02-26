@@ -1,4 +1,5 @@
-﻿using Application.Users.Queries.GetUserById;
+﻿using Application.Users.Commands.CreateUser;
+using Application.Users.Queries.GetUserById;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WebApi.Controllers
@@ -20,5 +21,10 @@ namespace WebApi.Controllers
             return await Mediator.Send(query);
         }
 
+        [HttpPost]
+        public async Task<ActionResult<UserDto>> Post(CreateUserCommand command)
+        {
+            return await Mediator.Send(command);
+        }
     }
 }
