@@ -18,4 +18,12 @@
     <ProjectReference Include="..\Domain\Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <EditorConfigFiles Remove="C:\Users\rimaz\source\repos\projects\marketplace\marketplace-dotnet-api\src\Application\.editorconfig" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="C:\Users\rimaz\source\repos\projects\marketplace\marketplace-dotnet-api\src\Application\.editorconfig" />
+  </ItemGroup>
+
 </Project>
