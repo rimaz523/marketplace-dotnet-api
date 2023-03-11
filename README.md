@@ -11,7 +11,7 @@ This is the backend API app of a one-stop online marketplace site created with d
 - Fluent Validation
 - Automapper
 - Swagger
-
+- CI/CD using Azure DevOps
 ## Installation Instructions
 
 - Clone the project locally
