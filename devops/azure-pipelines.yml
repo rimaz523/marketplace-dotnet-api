@@ -31,6 +31,13 @@ stages:
               includeNuGetOrg: true
 
           - task: DotNetCoreCLI@2
+            displayName: 'Verify no formatting errors'
+            inputs:
+              command: 'custom'
+              custom: 'format'
+              arguments: ' marketplace-dotnet-api.sln --verify-no-changes --verbosity detailed'
+
+          - task: DotNetCoreCLI@2
             displayName: Build
             inputs:
               command: build
