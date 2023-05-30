@@ -24,6 +24,16 @@ stages:
               includePreviewVersions: true # Required for preview versions
 
           - task: DotNetCoreCLI@2
+            displayName: 'Install dotnet format'
+            inputs:
+              command: 'tool update --global dotnet-format'
+
+          - task: DotNetCoreCLI@2
+            displayName: 'Verify no formatting errors'
+            inputs:
+              command: 'format marketplace-dotnet-api.sln --verify-no-changes --verbosity detailed'
+
+          - task: DotNetCoreCLI@2
             displayName: Restore
             inputs:
               command: 'restore'
