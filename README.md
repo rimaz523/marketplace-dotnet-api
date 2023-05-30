@@ -17,3 +17,11 @@ This is the backend API app of a one-stop online marketplace site created with d
 - Clone the project locally
 - Ensure startup project is set to WebApi
 - Run using kestrel or IIS on visual studio or and IDE of your choice.
+
+## Developer Instructions
+
+#### Code Formatting
+- Code-style rules have been defined in editorconfig files in each project
+- To format your code, either run `dotnet format` in the root dir OR run Code Analysis and Cleanup in Visual Studio IDE.
+- Code format checks have been implemented in the CI/CD pipeline to ensure code that is merged from a PR is conforming to all the code-style rules in editorconfig.
+- For more information see: https://dev.azure.com/rimazmohommed523/Marketplace/_wiki/wikis/Marketplace.wiki/36/Code-Formatting
