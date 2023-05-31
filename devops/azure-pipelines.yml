@@ -64,17 +64,17 @@ stages:
       - job: 'Deploy'
         displayName: 'Deploy job'
         environment: Development
-          strategy:
-            runOnce:
-              deploy:
-                steps:
-                  - download: current
-                    artifact: drop
+        strategy:
+          runOnce:
+            deploy:
+              steps:
+                - download: current
+                  artifact: drop
 
-                  - task: AzureWebApp@1
-                    displayName: 'Deploy .net core api to azure app service'
-                    inputs:
-                      azureSubscription: '$(managedIdentityName)'
-                      appName: '$(project)-$(environment)-$(webAppName)'
-                      appType: 'webAppLinux'
-                      package: '$(Pipeline.Workspace)/drop/$(buildConfiguration)/*.zip'
+                - task: AzureWebApp@1
+                  displayName: 'Deploy .net core api to azure app service'
+                  inputs:
+                    azureSubscription: '$(managedIdentityName)'
+                    appName: '$(project)-$(environment)-$(webAppName)'
+                    appType: 'webAppLinux'
+                    package: '$(Pipeline.Workspace)/drop/$(buildConfiguration)/*.zip'
