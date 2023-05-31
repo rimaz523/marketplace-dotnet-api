@@ -5,6 +5,8 @@ trigger:
 
 variables:
   - template: variables/build.yml
+  - template: variables/dev.yml
+  - template: variables/service-connections.yml
 
 stages:
   - stage: 'Build'
@@ -55,3 +57,24 @@ stages:
           - task: PublishBuildArtifacts@1
             displayName: 'Publish Artifact: drop'
             condition: succeeded()
+
+  - stage: 'Deploy_Dev'
+    displayName: 'Deploy to Dev'
+    jobs:
+      - job: 'Deploy'
+        displayName: 'Deploy job'
+        environment: Development
+          strategy:
+            runOnce:
+              deploy:
+                steps:
+                  - download: current
+                    artifact: drop
+
+                  - task: AzureWebApp@1
+                    displayName: 'Deploy .net core api to azure app service'
+                    inputs:
+                      azureSubscription: '$(managedIdentityName)'
+                      appName: '$(project)-$(environment)-$(webAppName)'
+                      appType: 'webAppLinux'
+                      package: '$(Pipeline.Workspace)/drop/$(buildConfiguration)/*.zip'

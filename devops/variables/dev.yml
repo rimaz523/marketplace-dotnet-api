@@ -1,0 +1,7 @@
+variables:
+- name: project
+  value: marketplace
+- name: environment
+  value: dev
+- name: webAppName
+  value: dotnet-api
