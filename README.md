@@ -1,3 +1,5 @@
+[![Build Status](https://dev.azure.com/rimazmohommed523/Marketplace/_apis/build/status%2Frimaz523.marketplace-dotnet-api?branchName=master)](https://dev.azure.com/rimazmohommed523/Marketplace/_build/latest?definitionId=13&branchName=master)
+
 # Online Marketplace Platform API Backend
 
 ## Description
