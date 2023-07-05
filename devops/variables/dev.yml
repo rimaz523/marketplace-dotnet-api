@@ -5,7 +5,7 @@ variables:
   value: dev
 - name: webAppName
   value: dotnet-api
-- name: keyVaultAppInsightsKeyUrl
+- name: keyVaultAppInsightsKey
   value: '@Microsoft.KeyVault(SecretUri=https://marketplace-dev-app-kv.vault.azure.net/secrets/application-insights-key/)'
-- name: keyVaultAppInsightsConnectionStringUrl
+- name: keyVaultAppInsightsConnectionString
   value: '@Microsoft.KeyVault(SecretUri=https://marketplace-dev-app-kv.vault.azure.net/secrets/application-insights-conn-string/)'
